@@ -282,7 +282,6 @@ def get_badges_prices():
                 "release_date": games[badge]['release_date'],
                 "last_update": last_update
             })
-
  
     return badges_prices
 

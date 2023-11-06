@@ -43,6 +43,8 @@ const btn_increase_target_level = document.querySelector("#btn_increase_target_l
 const btn_decrease_target_level = document.querySelector("#btn_decrease_target_level");
 const profile = document.querySelector(".profile");
 const div_player_image = document.querySelector(".div_player_image");
+const btn_submit = document.querySelector("#btn_submit");
+const steamid = document.querySelector("#steamid");
 
 const total_player_xp = 0;
 let xp = 0;
@@ -63,8 +65,6 @@ document.querySelector("form").addEventListener('submit', async function (e) {
 
     reset_page();
 
-    const steamid = document.querySelector("#steamid").value;
-
     if(steamid != ''){
         player_name.textContent = '';
         loader.style.display = 'block';
@@ -72,7 +72,7 @@ document.querySelector("form").addEventListener('submit', async function (e) {
         const response = await fetch(`/get_player_info`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ steamid: document.querySelector("#steamid").value })
+            body: JSON.stringify({ steamid: (steamid.value).toLowerCase() })
         });
     
         if (response.ok) {
@@ -221,6 +221,9 @@ async function draw_player_badges_data(data) {
         const link_steam_market = document.createElement('a');
         link_steam_market.textContent = 'M';
         link_steam_market.href = `https://steamcommunity.com/market/search?category_753_Game%5B%5D=tag_app_${data[i].appid}&category_753_cardborder%5B%5D=tag_cardborder_0&category_753_item_class%5B%5D=tag_item_class_2&appid=753`
+        if(data[i].border == 'Foil'){
+            link_steam_market.href = `https://steamcommunity.com/market/search?q=&category_753_Event%5B%5D=any&category_753_Game%5B%5D=tag_app_${data[i].appid}&category_753_cardborder%5B%5D=tag_cardborder_1&category_753_item_class%5B%5D=tag_item_class_2&appid=753`
+        }
         link_steam_market.setAttribute('target', '_black')
 
         const td_links = document.createElement('td');
@@ -647,6 +650,14 @@ search_badge.addEventListener('input', () => {
     search_game(badges_prices_data, ['name', 'appid'], searchTerm, tbody_badges_prices_data, draw_all_badges);
 });
 
+steamid.addEventListener('input', () => {
+    if((steamid.value).length > 1) {
+        btn_submit.disabled = false;
+    } else{
+        btn_submit.disabled = true;
+    }
+})
+
 //zoom image
 player_image.addEventListener('click', () =>{
     document.querySelector(".popup-image").style.display= "block";
@@ -700,4 +711,5 @@ handleButtonClick(btn_increase_current_level, current_level, 1);
 handleButtonClick(btn_decrease_current_level, current_level, -1);
 handleButtonClick(btn_increase_target_level, target_level, 1);
 handleButtonClick(btn_decrease_target_level, target_level, -1);
+
 

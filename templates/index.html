@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steam Badge Viewer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="stylesheet" href="../static/level_background.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 
 <body>
@@ -21,8 +21,8 @@
                     placeholder="SteamID64 or Custom URL">
                 <span class="input-border"></span>
             </div>
-            <button type="submit">
-                <span class="material-symbols-outlined" style="font-size: 18px;">person</span>
+            <button type="submit" id="btn_submit" disabled>
+                <span class="material-icons" style="font-size: 18px;">person</span>
                 Lets Go
             </button>
         </form>
@@ -69,15 +69,15 @@
 
         <div class="options">
             <button id="level_calculator" class="clicked">
-                <span class="material-symbols-outlined" style="font-size: 18px;">calculate</span>
+                <span class="material-icons" style="font-size: 18px;">calculate</span>
                 Level Calculator
             </button>
             <button id="player_badges" disabled>
-                <span class="material-symbols-outlined" style="font-size: 18px;">workspace_premium</span>
+                <span class="material-icons" style="font-size: 18px;">workspace_premium</span>
                 Badges
             </button>
             <button id="badges_prices">
-                <span class="material-symbols-outlined" style="font-size: 18px;">attach_money</span>
+                <span class="material-icons" style="font-size: 18px;">attach_money</span>
                 Badges Prices
             </button>
         </div>
@@ -99,24 +99,24 @@
                     <div class="div_current_level">
                         <label for="current_level">Your Steam Level</label>
                         <div class="div_input_level_calculator">
-                            <span class="material-symbols-outlined" id="btn_decrease_current_level">remove</span>
+                            <span class="material-icons" id="btn_decrease_current_level">remove</span>
                             <input type="number" placeholder="0" id="current_level" value="">
-                            <span class="material-symbols-outlined" id="btn_increase_current_level">add</span>
+                            <span class="material-icons" id="btn_increase_current_level">add</span>
                         </div>
                         
                         
                     </div>
                     
                     <div class="chevron">
-                         <span class="material-symbols-outlined" style="font-size: 55px; color: rgba(245, 245, 245, 0.719); user-select: none;">keyboard_double_arrow_right</span>
+                         <span class="material-icons" style="font-size: 55px; color: rgba(245, 245, 245, 0.719); user-select: none;">keyboard_double_arrow_right</span>
                     </div>
                     <div>
                         <div class="div_target_level">
                             <label for="target_level">Dream Steam Level</label>
                             <div class="div_input_level_calculator">
-                                <span class="material-symbols-outlined" id="btn_decrease_target_level">remove</span>
+                                <span class="material-icons" id="btn_decrease_target_level">remove</span>
                                 <input type="number" placeholder="0" id="target_level">
-                                <span class="material-symbols-outlined" id="btn_increase_target_level">add</span>
+                                <span class="material-icons" id="btn_increase_target_level">add</span>
                             </div>
                         </div>
                         <div class="sum_level">

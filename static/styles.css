@@ -246,14 +246,6 @@ header .options{
     max-width: max-content;
 }
 
-/* .clicked {
-    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.596) !important;
-    background: rgba(0, 139, 139, 0.349) !important;
-    border-color: rgba(0, 139, 139, 0) !important;
-    cursor: default !important;
-    color: whitesmoke !important;
-} */
-
 .clicked {
     background: rgb(40, 40, 40) !important;
     border-color: darkcyan !important;
@@ -261,23 +253,23 @@ header .options{
     color: darkcyan !important;
 }
 
-header .options button:not(:last-child){
+header button:not(:last-child){
     margin-right: 10px;
 }
 
-header .options button:disabled{
+header button:disabled{
     background: rgba(0, 139, 139, 0.5);
     border: 2px solid rgba(0, 139, 139, 0);
     cursor: default;
     color: rgba(245, 245, 245, 0.700);
 }
 
-header .options button:disabled:hover{
+header button:disabled:hover{
     color: rgba(245, 245, 245, 0.700);
     background: rgba(0, 139, 139, 0.5);
 }
 
-header .options button:hover{
+header button:hover{
     background: rgb(40, 40, 40);
     color: darkcyan;
     font-weight: 600;
