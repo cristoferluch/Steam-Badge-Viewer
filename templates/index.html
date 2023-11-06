@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Badge Viewer</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/level_background.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+
+    <header>
+
+        <form method="POST" action="/">
+            <div class="form">
+                <input type="text" id="steamid" name="steamid" class="input" spellcheck="false" value=""
+                    placeholder="SteamID64 or Custom URL">
+                <span class="input-border"></span>
+            </div>
+            <button type="submit">
+                <span class="material-symbols-outlined" style="font-size: 18px;">person</span>
+                Lets Go
+            </button>
+        </form>
+
+
+        <div class="profile">
+            <div class="div_player_image" style="display: none;">
+                <img src="" alt="Profile Image" id="player_image" width="120px" height="120px">
+            </div>
+            <div class="player_info">
+                
+                <div class="player_profile">
+                    <div class="x">
+                        <h2 id="player_name">Enter your steam username for more information.</h2>
+                    </div>
+                    <p id="player_country" style="display: none;"></p>
+                    <p id="member_since"></p>
+                    <div class="player_links">
+                        <a href="" id="steam_url" target="_blank" style="display: none;">Profile Link</a>
+                        <a href="" id="steamdb_url" target="_blank" style="display: none;">SteamDB</a>
+                        <a href="" id="steamladder_url" target="_blank" style="display: none;">Steamladder</a>
+                    </div>
+                    
+                </div>
+            
+
+                <div class="loader"></div>
+
+                <div class="player_status">
+                    <div class="x">
+                        <div class="player_level_div">
+                            <span id="player_level"></span>
+                        </div>
+                    </div>
+                    <p id="player_total_badges"></p>
+                    <p id="player_xp"></p>
+                    <p id="vac_status" style="display: none;">VAC Ban:
+                        <span id="span_vac_status"></span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="options">
+            <button id="level_calculator" class="clicked">
+                <span class="material-symbols-outlined" style="font-size: 18px;">calculate</span>
+                Level Calculator
+            </button>
+            <button id="player_badges" disabled>
+                <span class="material-symbols-outlined" style="font-size: 18px;">workspace_premium</span>
+                Badges
+            </button>
+            <button id="badges_prices">
+                <span class="material-symbols-outlined" style="font-size: 18px;">attach_money</span>
+                Badges Prices
+            </button>
+        </div>
+
+
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="" alt="">
+        </div>
+
+    </header>
+    
+    <main>
+
+        <!-- button level calculator -->
+        <div class="level_calculator">
+            <div class="level_calc">
+                <div class="level_box">
+                    <div class="div_current_level">
+                        <label for="current_level">Your Steam Level</label>
+                        <div class="div_input_level_calculator">
+                            <span class="material-symbols-outlined" id="btn_decrease_current_level">remove</span>
+                            <input type="number" placeholder="0" id="current_level" value="">
+                            <span class="material-symbols-outlined" id="btn_increase_current_level">add</span>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="chevron">
+                         <span class="material-symbols-outlined" style="font-size: 55px; color: rgba(245, 245, 245, 0.719); user-select: none;">keyboard_double_arrow_right</span>
+                    </div>
+                    <div>
+                        <div class="div_target_level">
+                            <label for="target_level">Dream Steam Level</label>
+                            <div class="div_input_level_calculator">
+                                <span class="material-symbols-outlined" id="btn_decrease_target_level">remove</span>
+                                <input type="number" placeholder="0" id="target_level">
+                                <span class="material-symbols-outlined" id="btn_increase_target_level">add</span>
+                            </div>
+                        </div>
+                        <div class="sum_level">
+                            <span id="btn1">+1</span>
+                            <span id="btn10">+10</span>
+                            <span id="btn100">+100</span>
+                        </div>
+                    </div>
+                    
+
+                </div>
+
+            </div>
+            <div class="level_info">
+                <div class="level_status">
+                    <div class="level">
+                        <p>Level</p>
+                        
+                        <div class="friendPlayerLeve">
+                            <span class="friendPlayerLevelNum"></span>
+                        </div>
+
+                        <span id="player_level_calculator" class="friendPlayerLevelNum"></span>
+                    </div>
+                    <div class="sets_and_xp">
+                        <div class="div_sets_needed">
+                            <p>Sets Needed</p>
+                            <p id="sets_needed">0</p>
+                        </div>
+                        <div class="div_xp_needed">
+                            <p>XP Needed</p>
+                            <p id="xp_needed">0</p>
+                        </div>
+
+                    </div>
+                </div>
+    
+                <div class="rewards">
+                    <p>You will get</p>
+                    <a href="https://steamcommunity.com/tradingcards/faq" target="_blank">Booster Pack Drop Rate: <span id="booster_pack" class="span_reward"></span></a>
+                    <a href="https://steamcommunity.com/tradingcards/faq" target="_blank">Emotes & Backgrounds: <span id="emotes_backgrounds" class="span_reward"></span></a>
+                    <a href="https://steamcommunity.com/my/friends/" target="_blank">Friend Cap: <span id="friend_cap" class="span_reward"></span><span style="color: #606367;">/2000</span></a>
+                    <a href="https://steamcommunity.com/tradingcards/faq" target="_blank">Game Coupons: <span id="game_coupons" class="span_reward"></span></a>
+                    <a href="https://steamcommunity.com/my/edit/showcases" target="_blank">Showcases: <span id="showcases" class="span_reward"></span><span style="color: #606367;">/20</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- button player badges -->
+        <table class="table_player_badges" style="display: none;">
+            <thead>
+                <tr>
+                    <th colspan="6"><input type="text" placeholder="Search by name or appid" id="search_player_game" spellcheck="false"></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Name<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(0, this)">arrow_drop_down</i></th>
+                    <th>Level<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(1, this)">arrow_drop_down</i></th>
+                    <th>XP<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(2, this)">arrow_drop_down</i></th>
+                    <th>Border<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(3, this)">arrow_drop_down</i></th>
+                    <th>Type<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(4, this)">arrow_drop_down</i></th>
+                    <th>Appid<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(5, this)">arrow_drop_down</i></th>
+                    <th>Scarcity<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(6, this)">arrow_drop_down</i></th>
+                    <th>Links</th>
+                    <th>Reached<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(7, this)">arrow_drop_down</i></th>                
+                </tr>
+            </thead>
+            <tbody class="tbody_player_badges">
+              
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+
+        <!-- button badges prices -->
+        <table class="table_badges_prices" style="display: none;">
+            <thead>
+                <tr>
+                    <th colspan="4"><input type="text" placeholder="Search by name or appid" id="search_badge" spellcheck="false"></th>                
+                    <th></th>
+                    <th colspan="4" style="text-align: center;">
+                        <label for="checkbox" style="display: flex; align-items: center;">
+                            <input type="checkbox" id="checkbox" style="width: min-content; margin-right: 5px;" disabled>
+                            Hide My Badges 
+                        </label>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Name<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(0, this)">arrow_drop_down</i></th>
+                    <th>Cards<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(1, this)">arrow_drop_down</i></th>
+                    <th>Standard<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(2, this)">arrow_drop_down</i></th>
+                    <th>Foil<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(3, this)">arrow_drop_down</i></th>
+                    <th>Booster Pack<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(4, this)">arrow_drop_down</i></th>
+                    <th>Game Price<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(5, this)">arrow_drop_down</i></th>
+                    <th>Links</th>
+                    <th>Release Date</th>
+                    <th>Last Update<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(7, this)">arrow_drop_down</i></th>
+                </tr>
+            </thead>
+            <tbody class="tbody_badges_prices">
+              
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+ 
+    </main>
+    
+    <footer>
+        <p>© 2023 Steam Badge Viewer - Made by <a href="https://github.com/cristoferluch">Cristofer Luchtenberg</a></p>
+        <p><a href="https://steamcommunity.com/id/cristoferluch/">Steam Profile</a></p>
+    </footer>
+
+    <script src="../static/app.js"></script>
+</body>
+</html>
