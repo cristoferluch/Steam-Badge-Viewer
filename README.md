@@ -65,15 +65,15 @@ Acesse o site clicando [aqui](https://steam-badge-viewer.onrender.com)
 ## Layout
 
 <p align="center">
-   <img src="https://github.com/cristoferluch/assets/blob/main/1.png" alt="#01" width="600">
+   <img src="https://github.com/cristoferluch/assets/blob/main/steam-badge-viewer-01-v2.png" alt="#01" width="600">
 </p>
 
 <p align="center">
-   <img src="https://github.com/cristoferluch/assets/blob/main/2.png" alt="#02" width="600">
+   <img src="https://github.com/cristoferluch/assets/blob/main/steam-badge-viewer-02-v2.png" alt="#02" width="600">
 </p>
 
 <p align="center">
-   <img src="https://github.com/cristoferluch/assets/blob/main/3.png" alt="#03" width="600">
+   <img src="https://github.com/cristoferluch/assets/blob/main/steam-badge-viewer-03-v2.png" alt="#03" width="600">
 </p>
 
 ## Demo 
