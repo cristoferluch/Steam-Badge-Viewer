@@ -45,6 +45,7 @@ const profile = document.querySelector(".profile");
 const div_player_image = document.querySelector(".div_player_image");
 const btn_submit = document.querySelector("#btn_submit");
 const steamid = document.querySelector("#steamid");
+let isUserLoggedIn = false;
 
 const total_player_xp = 0;
 let xp = 0;
@@ -378,20 +379,20 @@ async function draw_player_information(player_info, player_badges) {
     //Reset elements
     player_level.setAttribute('class', '');
     tbody_player_badges_data.innerHTML = '';
-
+    
     //Set atributes
     player_country.style = 'display: visible'
     steam_url.style = 'display: visible'
-    steam_url.textContent = 'Profile Link'
+    steam_url.textContent = 'Steam'
     steamdb_url.style = 'display: visible'
     steamdb_url.textContent = 'SteamDB'
     steamladder_url.style = 'display: visible'
     steamladder_url.textContent = 'Steam Ladder'
     player_name.style = 'color: whitesmoke'
-    profile.style = 'height: auto'
+    
     player_image.style = 'width: 120px; height: 120px'
     div_player_image.style = 'min-width: 120px; max-height: 120px';
-
+    // profile.style.height = "auto"
 
     player_country.textContent = 'Country: ' + player_info.loccountrycode;
     if(player_info.player_since != 0){
@@ -435,12 +436,31 @@ async function draw_player_information(player_info, player_badges) {
 
         document.querySelector('#player_badges').disabled = false;
         checkbox.disabled = false;
+        isUserLoggedIn = true;
     } else {
         player_xp.textContent = 'Private';
     }
     //End loading...
     loader.style.display = 'none';
+
+    set_profile_height();
+    
+
 }
+
+function set_profile_height(){
+    
+    var larguraTela = window.innerWidth;
+    if (larguraTela <= 650) {
+      profile.style.height = '300px';
+    } else {
+      profile.style.height = '140px';
+    }
+}
+window.addEventListener('resize', function() {
+    if(isUserLoggedIn)
+        set_profile_height();
+});
 
 // Update player xp on div level_calculator
 function update_player_xp(current_level, target_level, xp_player) {

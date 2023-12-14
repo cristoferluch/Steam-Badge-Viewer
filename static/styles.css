@@ -10,7 +10,7 @@
 html, body{
     width: 100%;
     height: 100%;
-    min-width:412px;
+    min-width:425px;
     
 }
 
@@ -43,7 +43,7 @@ header .form {
     --width-of-input: 180px;
     --border-height: 1px;
     --border-before-color: rgba(221, 221, 221, 0.39);
-    --border-after-color: darkcyan;
+    --border-after-color: #778f67;
     --input-hovered-color: #4985e01f;
     position: relative;
     width: var(--width-of-input);
@@ -78,11 +78,11 @@ input:focus ~ .input-border {
 }
 
 button{
-    background: darkcyan;
-    color: whitesmoke;
+    background: #778f67;
+    color: white;
     font-size: 10pt;
     border-radius: 3px;
-    border: 2px solid darkcyan;
+    border: 2px solid #778f67;
     outline: none;
     padding: 5px;
     display: flex;
@@ -102,8 +102,8 @@ button:hover{
     cursor: pointer;
     background: rgb(30, 30, 30);
     transition: .3s;
-    border: 2px solid darkcyan;
-    color: darkcyan;
+    border: 2px solid #778f67;
+    color: #778f67;
 }
 
 header .profile{
@@ -114,14 +114,18 @@ header .profile{
     background: rgb(40, 40, 40);
     margin: 20px 0 20px 0;
     border-radius: 5px;
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     min-width: 360px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     padding: 10px;
     font-size: 12pt;
     height: 80px;
+    transition: height 0.3s ease;
+    overflow: hidden;
 }
+
+
 
 header .div_player_image{
     min-width: 60px;
@@ -179,7 +183,7 @@ header .player_info{
    display: flex;
    justify-content: space-between;
    width: 100%;
-   height: 100%;
+   height: auto;
 }
 
 header .profile .player_info .player_profile{  
@@ -203,6 +207,9 @@ header .profile .player_info .player_profile .player_links a:not(:last-child){
     margin-right: 5px;
 }
 header .x{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     height: 40px;
 }
 
@@ -211,7 +218,6 @@ header .profile .player_info .player_profile .x #player_name{
 }
 
 header .profile .player_status{
-    height: 120px;
     width: max-content;
     display: flex;
     align-items: flex-end;
@@ -235,7 +241,8 @@ header .profile .player_status .player_level_div{
 }
 
 header .options{
-    width: 80%;
+    width: 85%;
+    min-width: 380px;
     border-radius: 5px;
     padding: 10px;
     background: rgb(40, 40, 40);
@@ -248,9 +255,9 @@ header .options{
 
 .clicked {
     background: rgb(40, 40, 40) !important;
-    border-color: darkcyan !important;
+    border-color: #778f67 !important;
     cursor: default !important;
-    color: darkcyan !important;
+    color: #778f67 !important;
 }
 
 header button:not(:last-child){
@@ -258,7 +265,7 @@ header button:not(:last-child){
 }
 
 header button:disabled{
-    background: rgba(0, 139, 139, 0.5);
+    background: #778f67;
     border: 2px solid rgba(0, 139, 139, 0);
     cursor: default;
     color: rgba(245, 245, 245, 0.700);
@@ -266,12 +273,12 @@ header button:disabled{
 
 header button:disabled:hover{
     color: rgba(245, 245, 245, 0.700);
-    background: rgba(0, 139, 139, 0.5);
+    background: #778f67;
 }
 
 header button:hover{
     background: rgb(40, 40, 40);
-    color: darkcyan;
+    color: #778f67;
     font-weight: 600;
 }
 
@@ -285,7 +292,7 @@ main{
 
 .level_calculator{
     width: 100%;
-    max-width: 1000px;
+    max-width: 1114px;
     height: 500px;
     background: rgb(40, 40, 40);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -298,7 +305,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 2px solid darkcyan;  
+    border-bottom: 2px solid #778f67;  
 }
 
 .div_input_level_calculator span{
@@ -426,7 +433,7 @@ label, p, .span_reward, .level_box i{
 
 .rewards a{
     text-decoration: none;
-    color: darkcyan;
+    color: #778f67;
 }
 
 table{
@@ -468,7 +475,7 @@ thead tr th input[type='text']{
     max-width: 200px;
     border: none;
     width: 100%;
-    border-bottom: 2px solid darkcyan;  
+    border-bottom: 2px solid #778f67;  
 }
 
 tbody tr td:first-child,
@@ -491,7 +498,7 @@ tbody tr td, thead tr th, tbody tr td a{
 
 tbody tr:hover{
     transition: .1s;
-    background: rgba(0, 139, 139, 0.377);
+    background: #778f67;
 }
 
 tbody tr td:last-child{
@@ -528,11 +535,15 @@ tbody tr a:not(:first-child) {
 }
 
 tbody tr a {
-    color: darkcyan;
+    color: #6c805f;
     font-weight: bold;
     font-size: 10pt;
     text-underline-offset: 3px;
     text-decoration: none;
+}
+
+tbody tr:hover a {
+    color: whitesmoke;
 }
 
 tbody tr a:hover {
@@ -570,7 +581,7 @@ tfoot {
 }
 
 .links{
-    color: darkcyan;
+    color: #778f67;
     font-weight: bolder;
 
 }
@@ -594,7 +605,7 @@ tfoot {
 
 * {
     scrollbar-width: auto;
-    scrollbar-color: #006d6d #282828;
+    scrollbar-color: #006d6d #778f67;
 }
 
 *::-webkit-scrollbar {
@@ -606,28 +617,27 @@ tfoot {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #006d6d;
+    background-color: #778f67;
     border: 3px none #ffffff;
 }
 
 .loader {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    border: 5px solid whitesmoke;
-    border-radius: 50%;
-    border-top: 5px solid darkcyan;
     width: 40px;
-    height: 40px;
-    animation: spin 0.5s linear infinite;
-}
-  
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #778f67;
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+    animation: l3 1s infinite linear;
+    display: none;
+  }
+  @keyframes l3 {to{transform: rotate(1turn)}}
 
 footer{
     width: 100%;
@@ -715,7 +725,7 @@ input::-webkit-inner-spin-button {
     }
 
     header .options button{
-        font-size: 6.5pt;
+        font-size: 8.1pt;
     }
 
     footer p, footer a{

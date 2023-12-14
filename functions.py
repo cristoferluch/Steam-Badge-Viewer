@@ -147,6 +147,7 @@ badges_by_id = {
 	'62': {'name': '2022 Steam Next Fest October Edition', 'appid': '2174530', 'badge_type': 'Special'},
 	'63': {'name': 'Steam Awards Nomination Committee 2022', 'appid': '753', 'badge_type': 'Special'},
 	'64': {'name': 'Steam Replay 2022', 'appid': '753', 'badge_type': 'Special'},
+	'65': {'name': 'Steam Awards Nomination Committee 2023', 'appid': '753', 'badge_type': 'Special'},
 }
 
 badges_by_appid = {
@@ -181,12 +182,9 @@ badges_by_appid = {
 }
 
 def timestamp_from_date(date_string):
-    try:
-        datetime_obj = datetime.datetime.strptime(date_string, '%Y-%m-%d %H:%M:%S')
-        timestamp = datetime_obj.timestamp()
-        return int(timestamp)
-    except ValueError:
-        print("Formato de data e hora inválido. Use 'Y-m-d H:M:S'.")
+    datetime_obj = datetime.datetime.strptime(date_string, '%Y-%m-%d %H:%M:%S')
+    timestamp = datetime_obj.timestamp()
+    return int(timestamp)
 
 def current_system_time():
     current_time = datetime.datetime.now()

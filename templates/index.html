@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steam Badge Viewer</title>
+    <link rel="icon" href="../static/images/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="stylesheet" href="../static/level_background.css">
 
 </head>
 
-<body>
+<body translate="no">
 
     <header>
 
@@ -22,7 +23,7 @@
                 <span class="input-border"></span>
             </div>
             <button type="submit" id="btn_submit" disabled>
-                <span class="material-icons" style="font-size: 18px;">person</span>
+                <span class="material-icons" style="font-size: 18px;" translate="no">person</span>
                 Lets Go
             </button>
         </form>
@@ -41,7 +42,7 @@
                     <p id="player_country" style="display: none;"></p>
                     <p id="member_since"></p>
                     <div class="player_links">
-                        <a href="" id="steam_url" target="_blank" style="display: none;">Profile Link</a>
+                        <a href="" id="steam_url" target="_blank" style="display: none;">Profile</a>
                         <a href="" id="steamdb_url" target="_blank" style="display: none;">SteamDB</a>
                         <a href="" id="steamladder_url" target="_blank" style="display: none;">Steamladder</a>
                     </div>
@@ -69,15 +70,15 @@
 
         <div class="options">
             <button id="level_calculator" class="clicked">
-                <span class="material-icons" style="font-size: 18px;">calculate</span>
+                <span class="material-icons" style="font-size: 18px;" translate="no">calculate</span>
                 Level Calculator
             </button>
             <button id="player_badges" disabled>
-                <span class="material-icons" style="font-size: 18px;">workspace_premium</span>
+                <span class="material-icons" style="font-size: 18px;" translate="no">workspace_premium</span>
                 Badges
             </button>
             <button id="badges_prices">
-                <span class="material-icons" style="font-size: 18px;">attach_money</span>
+                <span class="material-icons" style="font-size: 18px;" translate="no">attach_money</span>
                 Badges Prices
             </button>
         </div>
@@ -99,24 +100,24 @@
                     <div class="div_current_level">
                         <label for="current_level">Your Steam Level</label>
                         <div class="div_input_level_calculator">
-                            <span class="material-icons" id="btn_decrease_current_level">remove</span>
+                            <span class="material-icons" id="btn_decrease_current_level" translate="no">remove</span>
                             <input type="number" placeholder="0" id="current_level" value="">
-                            <span class="material-icons" id="btn_increase_current_level">add</span>
+                            <span class="material-icons" id="btn_increase_current_level" translate="no">add</span>
                         </div>
                         
                         
                     </div>
                     
                     <div class="chevron">
-                         <span class="material-icons" style="font-size: 55px; color: rgba(245, 245, 245, 0.719); user-select: none;">keyboard_double_arrow_right</span>
+                         <span class="material-icons" style="font-size: 55px; color: rgba(245, 245, 245, 0.719); user-select: none;" translate="no">keyboard_double_arrow_right</span>
                     </div>
                     <div>
                         <div class="div_target_level">
                             <label for="target_level">Dream Steam Level</label>
                             <div class="div_input_level_calculator">
-                                <span class="material-icons" id="btn_decrease_target_level">remove</span>
+                                <span class="material-icons" id="btn_decrease_target_level" translate="no">remove</span>
                                 <input type="number" placeholder="0" id="target_level">
-                                <span class="material-icons" id="btn_increase_target_level">add</span>
+                                <span class="material-icons" id="btn_increase_target_level" translate="no">add</span>
                             </div>
                         </div>
                         <div class="sum_level">
@@ -173,15 +174,15 @@
                     <th></th>
                 </tr>
                 <tr>
-                    <th>Name<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(0, this)">arrow_drop_down</i></th>
-                    <th>Level<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(1, this)">arrow_drop_down</i></th>
-                    <th>XP<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(2, this)">arrow_drop_down</i></th>
-                    <th>Border<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(3, this)">arrow_drop_down</i></th>
-                    <th>Type<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(4, this)">arrow_drop_down</i></th>
-                    <th>Appid<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(5, this)">arrow_drop_down</i></th>
-                    <th>Scarcity<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(6, this)">arrow_drop_down</i></th>
+                    <th>Name<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(0, this) ">arrow_drop_down</i></th>
+                    <th>Level<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(1, this)">arrow_drop_down</i></th>
+                    <th>XP<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(2, this)">arrow_drop_down</i></th>
+                    <th>Border<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(3, this)">arrow_drop_down</i></th>
+                    <th>Type<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(4, this)">arrow_drop_down</i></th>
+                    <th>Appid<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(5, this)">arrow_drop_down</i></th>
+                    <th>Scarcity<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(6, this)">arrow_drop_down</i></th>
                     <th>Links</th>
-                    <th>Reached<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(7, this)">arrow_drop_down</i></th>                
+                    <th>Reached<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(7, this)">arrow_drop_down</i></th>                
                 </tr>
             </thead>
             <tbody class="tbody_player_badges">
@@ -205,15 +206,15 @@
                     </th>
                 </tr>
                 <tr>
-                    <th>Name<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(0, this)">arrow_drop_down</i></th>
-                    <th>Cards<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(1, this)">arrow_drop_down</i></th>
-                    <th>Standard<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(2, this)">arrow_drop_down</i></th>
-                    <th>Foil<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(3, this)">arrow_drop_down</i></th>
-                    <th>Booster Pack<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(4, this)">arrow_drop_down</i></th>
-                    <th>Game Price<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(5, this)">arrow_drop_down</i></th>
+                    <th>Name<i class="material-icons" style="font-size: 24px;"translate="no" onclick="sortColumn(0, this)">arrow_drop_down</i></th>
+                    <th>Cards<i class="material-icons" style="font-size: 24px;"translate="no" onclick="sortColumn(1, this)">arrow_drop_down</i></th>
+                    <th>Standard<i class="material-icons" style="font-size: 24px;"translate="no" onclick="sortColumn(2, this)">arrow_drop_down</i></th>
+                    <th>Foil<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(3, this)">arrow_drop_down</i></th>
+                    <th>Booster Pack<i class="material-icons" style="font-size: 24px;"translate="no" onclick="sortColumn(4, this)">arrow_drop_down</i></th>
+                    <th>Game Price<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(5, this)">arrow_drop_down</i></th>
                     <th>Links</th>
                     <th>Release Date</th>
-                    <th>Last Update<i class="material-icons" style="font-size: 24px;" onclick="sortColumn(7, this)">arrow_drop_down</i></th>
+                    <th>Last Update<i class="material-icons" style="font-size: 24px;" translate="no" onclick="sortColumn(7, this)">arrow_drop_down</i></th>
                 </tr>
             </thead>
             <tbody class="tbody_badges_prices">
