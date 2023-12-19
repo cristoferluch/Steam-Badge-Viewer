@@ -148,6 +148,7 @@ badges_by_id = {
 	'63': {'name': 'Steam Awards Nomination Committee 2022', 'appid': '753', 'badge_type': 'Special'},
 	'64': {'name': 'Steam Replay 2022', 'appid': '753', 'badge_type': 'Special'},
 	'65': {'name': 'Steam Awards Nomination Committee 2023', 'appid': '753', 'badge_type': 'Special'},
+	'66': {'name': 'Steam Year In Review 2023', 'appid': '753', 'badge_type': 'Special'},
 }
 
 badges_by_appid = {
@@ -182,9 +183,12 @@ badges_by_appid = {
 }
 
 def timestamp_from_date(date_string):
-    datetime_obj = datetime.datetime.strptime(date_string, '%Y-%m-%d %H:%M:%S')
-    timestamp = datetime_obj.timestamp()
-    return int(timestamp)
+    try:
+        datetime_obj = datetime.datetime.strptime(date_string, '%Y-%m-%d %H:%M:%S')
+        timestamp = datetime_obj.timestamp()
+        return int(timestamp)
+    except ValueError:
+        print("Formato de data e hora inválido. Use 'Y-m-d H:M:S'.")
 
 def current_system_time():
     current_time = datetime.datetime.now()
@@ -208,6 +212,7 @@ def get_account_creation_time(time):
 
 def get_player_badges():
     player_badges = []
+    badge_info = ''
     
     for badge in badges_data['badges']:
         badge_appid = str(badge.get('appid'))
@@ -248,6 +253,7 @@ def get_player_badges():
 def get_badges_prices():
     
     badges_prices = []
+    print(len(games))
 
     for badge in games:
 
@@ -280,6 +286,8 @@ def get_badges_prices():
                 "release_date": games[badge]['release_date'],
                 "last_update": last_update
             })
+
+    print(len(badges_prices))
  
     return badges_prices
 
