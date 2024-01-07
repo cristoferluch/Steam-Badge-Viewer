@@ -79,7 +79,6 @@ document.querySelector("form").addEventListener('submit', async function (e) {
         if (response.ok) {
             const data = await response.json();
             if ('error' in data) {
-                console.error(data.error);
                 loader.style.display = 'none';
                 player_name.textContent = " No users found!";
                 player_name.style = 'color: red'
@@ -100,9 +99,7 @@ document.querySelector("form").addEventListener('submit', async function (e) {
     } else {
         alert("erro")
     }
-
     //loading...
-
 });
 
 //Fech data from badges prices
@@ -207,7 +204,6 @@ async function draw_player_badges_data(data) {
         if (data[i].border == 'Foil') {
             link_steam.href = 'https://steamcommunity.com/my/gamecards/' + data[i].appid + '/?border=1';
         } else if (data[i].badgeid >= 1 && data[i].appid == '753') {
-            console.log()
             link_steam.href = 'https://steamcommunity.com/my/badges/' + data[i].badgeid;
         } else {
             link_steam.href = 'https://steamcommunity.com/my/gamecards/' + data[i].appid;

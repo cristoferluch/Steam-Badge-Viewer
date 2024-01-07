@@ -152,6 +152,7 @@ badges_by_id = {
 }
 
 badges_by_appid = {
+    '2750340': {'name': 'Winter Collection - 2023', 'badge_type': 'Seasonal'},
     '2460510': {'name': 'Summer Collection - 2023', 'badge_type': 'Seasonal'},
     '2243810': {'name': 'Winter Collection - 2022', 'badge_type': 'Seasonal'},
     '2055870': {'name': 'Summer Collection - 2022', 'badge_type': 'Seasonal'},
@@ -160,6 +161,7 @@ badges_by_appid = {
     '1615900': {'name': 'Spring Collection - 2021', 'badge_type': 'Seasonal'},
     '1492660': {'name': 'Winter Collection - 2020', 'badge_type': 'Seasonal'},
     '1263950': {'name': 'The Debut Collection', 'badge_type': 'Seasonal'},
+    '2640280': {'name': 'Winter Sale 2023', 'badge_type': 'Event'},
     '2459330': {'name': 'Summer In The City', 'badge_type': 'Event'},
     '2243720': {'name': 'The Steam Awards - 2022', 'badge_type': 'Event'},
     '2021850': {'name': 'Steam 3000', 'badge_type': 'Event'},
@@ -253,7 +255,6 @@ def get_player_badges():
 def get_badges_prices():
     
     badges_prices = []
-    print(len(games))
 
     for badge in games:
 
@@ -287,7 +288,5 @@ def get_badges_prices():
                 "last_update": last_update
             })
 
-    print(len(badges_prices))
- 
     return badges_prices
 
