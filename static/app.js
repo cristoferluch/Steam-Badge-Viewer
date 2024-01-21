@@ -7,6 +7,7 @@ const steamladder_url = document.querySelector("#steamladder_url");
 const player_xp = document.querySelector("#player_xp");
 const player_total_badges = document.querySelector("#player_total_badges");
 const player_level = document.querySelector("#player_level");
+const player_info_div = document.querySelector(".player_info");
 const player_since = document.querySelector("#member_since");
 const vac_status = document.querySelector("#vac_status");
 const span_vac_status = document.querySelector("#span_vac_status");
@@ -45,6 +46,7 @@ const profile = document.querySelector(".profile");
 const div_player_image = document.querySelector(".div_player_image");
 const btn_submit = document.querySelector("#btn_submit");
 const steamid = document.querySelector("#steamid");
+let steamid_player = "";
 let isUserLoggedIn = false;
 
 const total_player_xp = 0;
@@ -68,6 +70,7 @@ document.querySelector("form").addEventListener('submit', async function (e) {
 
     if(steamid != ''){
         player_name.textContent = '';
+        player_info_div.style.height = '40px';
         loader.style.display = 'block';
         //Get player information
         const response = await fetch(`/get_player_info`, {
@@ -85,6 +88,7 @@ document.querySelector("form").addEventListener('submit', async function (e) {
             } else {
                 
                 const player_info = data.player_info;
+                steamid_player = player_info['steamid'];
                 const player_badges = data.player_badges;
                 draw_player_information(player_info, player_badges)
                 if (player_badges != 'Private' && player_badges != 0) {
@@ -156,9 +160,8 @@ async function draw_player_badges_data(data) {
     const fragment = document.createDocumentFragment();
 
     const start = tbody_player_badges_data.children.length;
-
+    
     for (let i = start; i < start + batchSize && i < data.length; i++) {
-
         const td_name = document.createElement('td');
         td_name.textContent = data[i].name;
 
@@ -202,11 +205,11 @@ async function draw_player_badges_data(data) {
         link_steam.textContent = 'B';
 
         if (data[i].border == 'Foil') {
-            link_steam.href = 'https://steamcommunity.com/my/gamecards/' + data[i].appid + '/?border=1';
+            link_steam.href = `https://steamcommunity.com/profiles/${steamid_player}/gamecards/${data[i].appid}/?border=1`;
         } else if (data[i].badgeid >= 1 && data[i].appid == '753') {
-            link_steam.href = 'https://steamcommunity.com/my/badges/' + data[i].badgeid;
+            link_steam.href = `https://steamcommunity.com/profiles/${steamid_player}/badges/${data[i].badgeid}`;
         } else {
-            link_steam.href = 'https://steamcommunity.com/my/gamecards/' + data[i].appid;
+            link_steam.href = `https://steamcommunity.com/profiles/${steamid_player}/gamecards/${data[i].appid}`;
         }
         link_steam.setAttribute('target', '_blank');
 

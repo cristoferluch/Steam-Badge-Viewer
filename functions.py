@@ -224,6 +224,7 @@ def get_player_badges():
         if badge_appid_int is None:
             if badge_id in badges_by_id:
                 badge_info = badges_by_id[badge_id]
+                badge_appid = badges_by_id[badge_id]['appid']
         elif badge_appid in badges_by_appid:
             badge_info = badges_by_appid[badge_appid]
         elif badge_appid in games:
