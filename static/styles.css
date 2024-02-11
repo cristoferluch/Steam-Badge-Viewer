@@ -603,23 +603,6 @@ tfoot {
 }
 
 
-* {
-    scrollbar-width: auto;
-    scrollbar-color: #006d6d #778f67;
-}
-
-*::-webkit-scrollbar {
-    width: 10px;
-}
-
-*::-webkit-scrollbar-track {
-    background: #282828;
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: #778f67;
-    border: 3px none #ffffff;
-}
 
 .loader {
     width: 40px;
@@ -662,6 +645,19 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #282828;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #778f67;
+    border: 3px none #ffffff;
+}
+
 @media only screen and (max-width: 650px) {
     
     header{
@@ -689,7 +685,6 @@ input::-webkit-inner-spin-button {
     }
    
    
-
     header .profile .player_info .player_profile .x #player_name{
         font-size: clamp(1rem, 1.3vw, 1.5rem);
     }
@@ -697,6 +692,7 @@ input::-webkit-inner-spin-button {
     label{
         font-size: 1em;
     }
+
     *::-webkit-scrollbar {
         width: 8px;
     }
@@ -706,9 +702,11 @@ input::-webkit-inner-spin-button {
     }
     
     *::-webkit-scrollbar-thumb {
-        background-color: #006d6d;
+        background-color: #778f67;
         border: 3px none #ffffff;
     }
+    
+    
 }
 
 @media only screen and (max-width: 540px) {
