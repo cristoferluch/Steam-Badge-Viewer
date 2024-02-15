@@ -291,3 +291,9 @@ def get_badges_prices():
 
     return badges_prices
 
+def log_user_activity(steamid, username):
+    current_datetime = datetime.datetime.now()
+    formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+    
+    with open('log_user_activity.txt', 'a') as log_file:
+        log_file.write(f'{formatted_datetime} - {steamid} - {username}\n')

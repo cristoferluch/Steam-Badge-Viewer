@@ -14,12 +14,17 @@ def get_player():
     if request.method == 'POST':
         data = request.get_json()
         steamid = data.get('steamid')
+        username = None
         
         # Check if it's a steamid or username.
         if not steamid.isdigit():
+            username = steamid
             steamid = get_steamid(steamid)
+            
             if steamid is False:
                 return jsonify({'error': 'No users found!'})
+
+        log_user_activity(steamid, username)
 
         player_info = get_player_info(steamid)
 
