@@ -5,9 +5,12 @@ import json
 import datetime
 from tzlocal import get_localzone
 from concurrent.futures import ThreadPoolExecutor
+import base64
 
 load_dotenv(override=True)
 STEAM_API_KEY = os.getenv('STEAM_API_KEY')
+GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+GITHUB_URL = os.getenv('GITHUB_URL')
 
 badges_data = []
 local_timezone = get_localzone()
@@ -291,9 +294,38 @@ def get_badges_prices():
 
     return badges_prices
 
-def log_user_activity(steamid, username):
-    current_datetime = datetime.datetime.now()
-    formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+def get_file_content(url, headers):
+    response = requests.get(url, headers=headers)
     
-    with open('log_user_activity.txt', 'a') as log_file:
-        log_file.write(f'{formatted_datetime} - {steamid} - {username}\n')
+    if response.status_code == 200:
+        content = response.json()['content']
+        return base64.b64decode(content).decode('utf-8')
+    else:
+        print(f'Error file content: {response.status_code}')
+        return None
+
+
+def log_user_activity(steamid, username):
+
+    headers = {'Authorization': f'token {GITHUB_TOKEN}'}
+
+    current_content = get_file_content(GITHUB_URL, headers)
+
+    if current_content is not None:
+        current_datetime = datetime.datetime.now()
+        formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+        log_entry = f'{formatted_datetime} - {steamid} - {username}\n'
+        
+        new_content = current_content + log_entry
+
+        payload = {
+            "message": "",
+            "content": base64.b64encode(new_content.encode('utf-8')).decode('utf-8'),
+            "sha": requests.get(GITHUB_URL, headers=headers).json()['sha']
+        }
+
+        response = requests.put(GITHUB_URL, headers=headers, json=payload)
+
+        if response.status_code != 200:
+            print(f'Error log file: {response.status_code}')
+
