@@ -313,7 +313,8 @@ def log_user_activity(steamid, username):
 
     if current_content is not None:
         current_datetime = datetime.datetime.now()
-        formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+        adjusted_datetime = current_datetime - datetime.timedelta(hours=3)
+        formatted_datetime = adjusted_datetime.strftime("%Y-%m-%d %H:%M:%S")
         log_entry = f'{formatted_datetime} - {steamid} - {username}\n'
         
         new_content = current_content + log_entry
