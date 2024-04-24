@@ -70,7 +70,6 @@ def get_player_info(steamid):
     if 'timecreated' in player:
         time = player.get('timecreated')
         member_since = get_account_creation_time(time)
-    
 
     return {
         'communityvisibilitystate': player.get('communityvisibilitystate', 'N/A'),
@@ -96,7 +95,7 @@ badges_by_id = {
 	'5': {'name': 'Steam Summer Camp', 'appid': '753', 'badge_type': 'Special'},
 	'6': {'name': 'Steam Holiday Sale 2011', 'appid': '753', 'badge_type': 'Special'},
 	'7': {'name': 'Steam Summer Sale 2012', 'appid': '753', 'badge_type': 'Special'},
-	'8': {'name': '	Steam Holiday Sale 2012', 'appid': '753', 'badge_type': 'Special'},
+	'8': {'name': 'Steam Holiday Sale 2012', 'appid': '753', 'badge_type': 'Special'},
 	'9':  {'name': 'Steam Community Translator', 'appid': '753', 'badge_type': 'Special'},
 	'10': {'name': 'Steam Community Moderator', 'appid': '753', 'badge_type': 'Special'},
 	'11': {'name': 'Valve Employee', 'appid': '753', 'badge_type': 'Special'},
@@ -193,7 +192,7 @@ def timestamp_from_date(date_string):
         timestamp = datetime_obj.timestamp()
         return int(timestamp)
     except ValueError:
-        print("Formato de data e hora inválido. Use 'Y-m-d H:M:S'.")
+        print("Error date")
 
 def current_system_time():
     current_time = datetime.datetime.now()
@@ -303,7 +302,6 @@ def get_file_content(url, headers):
     else:
         print(f'Error file content: {response.status_code}')
         return None
-
 
 def log_user_activity(steamid, username):
 

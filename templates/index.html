@@ -19,7 +19,7 @@
         <form method="POST" action="/">
             <div class="form">
                 <input type="text" id="steamid" name="steamid" class="input" spellcheck="false" value=""
-                    placeholder="SteamID64 or Custom URL">
+                    placeholder="SteamID64 or Custom URL" onchange="remove_spaces(this)">
                 <span class="input-border"></span>
             </div>
             <button type="submit" id="btn_submit" disabled>

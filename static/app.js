@@ -70,13 +70,12 @@ document.querySelector("form").addEventListener('submit', async function (e) {
 
     if(steamid != ''){
         player_name.textContent = '';
-        player_info_div.style.height = '40px';
         loader.style.display = 'block';
         //Get player information
         const response = await fetch(`/get_player_info`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ steamid: (steamid.value).toLowerCase() })
+            body: JSON.stringify({ steamid: (steamid.value).toLowerCase().trim() })
         });
     
         if (response.ok) {
@@ -721,6 +720,10 @@ function handleButtonClick(button, target, increment) {
             handleInput();
         }
     });
+}
+
+function remove_spaces(element){
+    element.value = element.value.trim();
 }
 
 handleButtonClick(btn_add_level_1, target_level, 1);
